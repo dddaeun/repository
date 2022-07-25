@@ -5,7 +5,7 @@ import axios from './api/axios';
 import logo from "./logo.png"
 
 const USER_REGEX = /^[A-z][A-z0-9-_]{3,23}$/;
-const PWD_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%]).{8,24}$/;
+const PWD_REGEX = /^(?=.*[0-9]){8,24}$/;
 const REGISTER_URL = '/register';
 
 const Register = () => {
@@ -86,9 +86,9 @@ const Register = () => {
         <>
             {success ? (
                 <section>
-                    <h1>가입되었습니다!</h1>
+                    <h1>회원가입이 완료되었습니다!</h1>
                     <p>
-                        <a href="#">로그인하기</a>
+                        <a href="#">로그인</a>
                     </p>
                 </section>
             ) : (
@@ -144,9 +144,7 @@ const Register = () => {
                         />
                         <p id="pwdnote" className={pwdFocus && !validPwd ? "instructions" : "offscreen"}>
                             <FontAwesomeIcon icon={faInfoCircle} />
-                            8글자 이상, 24글자 이하로 입력해주세요<br />
-                            알파벳 대문자와 소문자, 숫자, 기호를 반드시 포함해야합니다.<br />
-                            허용되는 기호: <span aria-label="exclamation mark">!</span> <span aria-label="at symbol">@</span> <span aria-label="hashtag">#</span> <span aria-label="dollar sign">$</span> <span aria-label="percent">%</span>
+                            8자 이상, 24자 이하의 숫자를 입력해주세요<br />
                         </p>
 
 
@@ -177,7 +175,7 @@ const Register = () => {
                         이미 가입하셨나요?<br />
                         <span className="line">
                             {/*put router link here*/}
-                            <a href="#">로그인하기</a>
+                            <a href="#">로그인</a>
                         </span>
                     </p>
                 </section>
